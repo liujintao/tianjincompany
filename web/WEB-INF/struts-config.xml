@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+
+<struts-config>
+    <form-beans>
+        <form-bean name="BBSForm" type="com.myapp.form.BBSForm"/>
+        <form-bean name="ChanpinForm" type="com.myapp.form.ChanpinForm"/>
+        <form-bean name="LoginForm" type="com.app.form.LoginForm"/>
+        <form-bean name="JichangForm" type="com.myapp.form.JichangForm"/>
+        <form-bean name="ChezhanForm" type="com.myapp.form.ChezhanForm"/>
+        <form-bean name="YiliaouploadForm" type="com.myapp.form.YiliaouploadForm"/>
+        <form-bean name="YiliaoForm" type="com.myapp.form.YiliaoForm"/>
+        <form-bean name="UserForm" type="com.myapp.form.UserForm"/>
+        <form-bean name="ShuiUploadForm" type="com.myapp.form.ShuiUploadForm"/>
+        <form-bean name="HaishiUploadForm" type="com.myapp.form.HaishiUploadForm"/>
+        <form-bean name="HaishiForm" type="com.myapp.form.HaishiForm"/>
+        <form-bean name="BangongUploadForm" type="com.myapp.form.BangongUploadForm"/>
+        <form-bean name="BangongForm" type="com.myapp.form.BangongForm"/>
+        <form-bean name="InsertUewsForm" type="com.myapp.form.InsertUewsForm"/>
+        <form-bean name="NengxiaoUploadForm" type="com.myapp.form.NengxiaoUploadForm"/>
+        <form-bean name="NengxiaoForm" type="com.myapp.form.NengxiaoForm"/>
+        <form-bean name="JianqieUploadForm" type="com.myapp.form.JianqieUploadForm"/>
+        <form-bean name="JianqieForm" type="com.myapp.form.JianqieForm"/>
+        <form-bean name="UploadForm" type="com.myapp.form.UploadForm"/>
+        <form-bean name="ShuiForm" type="com.myapp.form.ShuiForm"/>
+        <form-bean name="JianzhuForm" type="com.myapp.form.JianzhuForm"/>
+        <form-bean name="InsertNewsForm" type="com.myapp.form.InsertNewsForm"/>
+    </form-beans>
+    
+    <global-exceptions>
+    
+    </global-exceptions>
+
+    <global-forwards>
+        <forward name="welcome"  path="/Welcome.do"/>
+    </global-forwards>
+
+    <action-mappings>
+         <action input="/login.jsp" name="LoginForm" path="/login" scope="request" type="com.myapp.action.LoginAction">
+            <forward name="loginY" path="/back/index.jsp"/>
+            <forward name="loginN" path="/login_error.jsp"/>
+        </action>
+      <!--  <action input="/back/insertuser.jsp" name="InsertUserForm" path="/back/insertuser" scopt="request" type="com.myapp.action.InsertUserAction">
+            <forward name="loginY" path="/back/insertusersuccess.jsp"/>
+            <forward name="loginN" path="/back/insertusererror.jsp"/>
+            <forward name="error" path="/back/right.jsp"/>
+        </action>    -->
+        <action input="/back/shui.jsp" name="ShuiForm" path="/back/shui" scope="session" type="com.myapp.action.ShuiAction">
+            <forward name="success" path="/back/shuiupload.jsp"/>
+            </action>
+            <action input="/" name="UploadForm" path="/back/upload" scope="session" type="com.myapp.action.UploadAction">
+                <forward name="success"  path="/back/uploadsuccess.jsp"/>
+                </action>
+
+        <action input="/back/jianzhu.jsp" name="JianzhuForm" path="/back/jianzhu" scope="session" type="com.myapp.action.JianzhuAction">
+          <forward name="loginY" path="/back/jianzhuupload.jsp"/>
+           <forward name="error" path="/back/right.jsp"/>
+           </action>
+        <action input="/back/news.jsp" name="InsertNewsForm" path="/back/insertnews" scope="session" type="com.myapp.action.InsertNewsAction">
+            <forward name="loginY" path="/back/insertusersuccess.jsp"/>
+            <forward name="loginN" path="/back/insertusererror.jsp"/>
+            <forward name="error" path="/back/right.jsp"/>
+        </action>
+        <action input="/" name="JianqieForm" path="/back/jianqie" scope="session" type="com.myapp.action.JianqieAction">
+            <forward name="success" path="/back/jianqieupload.jsp"/>
+        </action>
+        <action input="/" name="JianqieUploadForm" path="/back/jianqieupload" scope="session" type="com.myapp.action.JianqieUploadAction">
+            <forward name="success"  path="/back/uploadsuccess.jsp"/>
+        </action>
+        <action input="/" name="NengxiaoForm" path="/back/nengxiao" scope="session" type="com.myapp.action.NengxiaoAction">
+            <forward name="success"  path="/back/nengxiaoupload.jsp"/>
+        </action>
+        <action input="/" name="NengxiaoUploadForm" path="/back/nengxiaoupload" scope="session" type="com.myapp.action.NengxiaoUploadAction">
+            <forward name="success"  path="/back/uploadsuccess.jsp"/>
+        </action>
+        <action input="/" name="BangongForm" path="/back/bangong" scope="session" type="com.myapp.action.BangongAction">
+            <forward name="success"  path="/back/bangongupload.jsp"/>
+        </action>
+        <action input="/" name="BangongUploadForm" path="/back/bangongupload" scope="session" type="com.myapp.action.BangongUplandAction">
+            <forward name="success"  path="/back/uploadsuccess.jsp"/>
+        </action>
+        <action input="/" name="HaishiForm" path="/back/haishi" scope="session" type="com.myapp.action.HaishiAction">
+            <forward name="success"  path="/back/haishiupload.jsp"/>
+        </action>
+        <action input="/" name="HaishiUploadForm" path="/back/haishiupload" scope="session" type="com.myapp.action.HaishiUploadAction">
+            <forward name="success"  path="/back/uploadsuccess.jsp"/>
+         </action>
+         <action input="/" name="UserForm" path="/back/insertuser" scope="session" type="com.myapp.action.UserAction">
+            <forward name="success" path="/back/insertusersuccess.jsp"/>
+         </action>
+                         
+         <action input="/" name="ShuiUploadForm" path="/back/shuiupload" scope="session" type="com.myapp.action.ShuiUploadAction">
+            <forward name="success"  path="/back/uploadsuccess.jsp"/>
+        </action>
+        <action input="/" name="YiliaoForm" path="/back/yiliao" scope="session" type="com.myapp.action.YiliaoAction">
+             <forward name="success"  path="/back/yiliaoupload.jsp"/>
+            </action>
+            <action input="/" name="YiliaouploadForm" path="/back/yiliaoupload" scope="session" type="com.myapp.action.YiliaoUploadAction">
+            <forward name="success"  path="/back/uploadsuccess.jsp"/>
+            </action>
+            <action input="/" name="ChezhanForm" path="/back/chezhan" scope="session" type="com.myapp.action.ChezhanAction">
+              <forward name="success"  path="/back/chezhanupload.jsp"/>
+            </action>
+            <action input="/" name="YiliaouploadForm" path="/back/chezhanupload" scope="session" type="com.myapp.action.ChezhanUploadAction">
+              <forward name="success"  path="/back/uploadsuccess.jsp"/>
+            </action>
+            <action input="/" name="JichangForm" path="/back/jichang" scope="session" type="com.myapp.action.JichangAction">
+             <forward name="success"  path="/back/jichangupload.jsp"/>
+            </action>
+            <action input="/" name="YiliaouploadForm" path="/back/jichangupload" scope="session" type="com.myapp.action.JichangUploadAction">
+               <forward name="success"  path="/back/uploadsuccess.jsp"/>
+            </action>
+            <action input="/" name="UploadForm" path="/back/jianzhuupload" scope="session" type="com.myapp.action.JianzhuUploadAction">
+               <forward name="success"  path="/back/uploadsuccess.jsp"/>
+            </action>
+            <action input="/" name="ChanpinForm" path="/back/zhileng" scope="session" type="com.myapp.action.ChanpinAction">
+                <forward name="success"  path="/back/zhilengupload.jsp"/>
+            </action>
+            <action input="/" name="UploadForm" path="/back/zhilengupload" scope="session" type="com.myapp.action.ChanpinUploadAction">
+                <forward name="success"  path="/back/uploadsuccess.jsp"/>
+            </action>     
+             <action input="/" name="ChanpinForm" path="/back/zidonghua" scope="session" type="com.myapp.action.ChanpinAction">
+                <forward name="success"  path="/back/zidonghuaupload.jsp"/>
+            </action>
+             <action input="/" name="UploadForm" path="/back/zidonghuaupload" scope="session" type="com.myapp.action.ChanpinUploadAction">
+                <forward name="success"  path="/back/uploadsuccess.jsp"/>
+            </action>
+            <action input="/" name="ChanpinForm" path="/back/jixie" scope="session" type="com.myapp.action.ChanpinAction">
+                <forward name="success"  path="/back/jixieupload.jsp"/>
+            </action>
+             <action input="/" name="UploadForm" path="/back/jixieupload" scope="session" type="com.myapp.action.ChanpinUploadAction">
+                <forward name="success"  path="/back/uploadsuccess.jsp"/>
+            </action>
+            <action input="/" name="ChanpinForm" path="/back/zhagang" scope="session" type="com.myapp.action.ChanpinAction">
+                <forward name="success"  path="/back/zhagangupload.jsp"/>
+            </action>
+             <action input="/" name="UploadForm" path="/back/zhagangupload" scope="session" type="com.myapp.action.ChanpinUploadAction">
+                <forward name="success"  path="/back/uploadsuccess.jsp"/>
+            </action>
+             <action input="/" name="ChanpinForm" path="/back/moju" scope="session" type="com.myapp.action.ChanpinAction">
+                <forward name="success"  path="/back/mojuupload.jsp"/>
+            </action>
+             <action input="/" name="UploadForm" path="/back/mojuupload" scope="session" type="com.myapp.action.ChanpinUploadAction">
+                <forward name="success"  path="/back/uploadsuccess.jsp"/>
+            </action>
+             <action input="/" name="ChanpinForm" path="/back/qiezhi" scope="session" type="com.myapp.action.ChanpinAction">
+                <forward name="success"  path="/back/qiezhiupload.jsp"/>
+            </action>
+             <action input="/" name="UploadForm" path="/back/qiezhiupload" scope="session" type="com.myapp.action.ChanpinUploadAction">
+                <forward name="success"  path="/back/uploadsuccess.jsp"/>
+            </action>
+             <action input="/" name="ChanpinForm" path="/back/jiudian" scope="session" type="com.myapp.action.ChanpinAction">
+                <forward name="success"  path="/back/jiudianupload.jsp"/>
+            </action>
+             <action input="/" name="UploadForm" path="/back/jiudianupload" scope="session" type="com.myapp.action.ChanpinUploadAction">
+                <forward name="success"  path="/back/uploadsuccess.jsp"/>
+            </action>
+            <action input="/" name="BBSForm" path="/insertbbs" scope="session" type="com.myapp.action.BBSAction">
+                <forward name="success"  path="/bbssuccess.jsp"/>
+            </action>
+        <action path="/Welcome" forward="/welcomeStruts.jsp"/>
+    </action-mappings>
+    
+    <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
+
+    <message-resources parameter="com/myapp/struts/ApplicationResource"/>    
+    
+    <!-- ========================= Tiles plugin ===============================-->
+    <!--
+    This plugin initialize Tiles definition factory. This later can takes some
+    parameters explained here after. The plugin first read parameters from
+    web.xml, thenoverload them with parameters defined here. All parameters
+    are optional.
+    The plugin should be declared in each struts-config file.
+    - definitions-config: (optional)
+    Specify configuration file names. There can be several comma
+    separated file names (default: ?? )
+    - moduleAware: (optional - struts1.1)
+    Specify if the Tiles definition factory is module aware. If true
+    (default), there will be one factory for each Struts module.
+    If false, there will be one common factory for all module. In this
+    later case, it is still needed to declare one plugin per module.
+    The factory will be initialized with parameters found in the first
+    initialized plugin (generally the one associated with the default
+    module).
+    true : One factory per module. (default)
+    false : one single shared factory for all modules
+    - definitions-parser-validate: (optional)
+    Specify if xml parser should validate the Tiles configuration file.
+    true : validate. DTD should be specified in file header (default)
+    false : no validation
+
+    Paths found in Tiles definitions are relative to the main context.
+    -->
+    <plug-in className="org.apache.struts.tiles.TilesPlugin" >
+        <set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />      
+        <set-property property="moduleAware" value="true" />
+    </plug-in>
+    
+    <!-- ========================= Validator plugin ================================= -->
+    <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+        <set-property
+            property="pathnames"
+            value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml"/>
+    </plug-in>
+  
+</struts-config>
